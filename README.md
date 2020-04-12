@@ -3,7 +3,7 @@
 A Haskell implementation of [OpenID Connect](http://openid.net/connect/).
 
 ##### Prerequisites
-Instasll Haskell [stack](https://docs.haskellstack.org/en/stable/README/#how-to-install)
+Install Haskell [stack](https://docs.haskellstack.org/en/stable/README/#how-to-install)
 
 ##### Building
 ```
