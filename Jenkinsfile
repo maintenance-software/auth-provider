@@ -40,7 +40,7 @@ pipeline {
                         + '-e DB_USER=inventory_user '
                         + '-e DB_PASSWORD=inventory_password '
                         + '-e DB_HOST=192.168.0.107 '
-                        + '-e DB_DATABASE=inventory_db '
+                        + '-e DB_DATABASE=inventory_db'
                     )
                 }
             }
