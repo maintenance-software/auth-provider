@@ -5,7 +5,8 @@ pipeline {
         stage('CleanOldBinary') {
             steps {
                catchError {
-//               sh 'rm -rf .stack-work'
+                 sh 'rm -rf webapps/dist'
+                 sh 'rm -rf .stack-work'
                  sh 'docker stop auth-provider'
                  sh 'docker rm auth-provider'
                  sh 'docker images -a | grep "auth-provider" | awk \'{print $3}\' | xargs docker rmi'
@@ -33,7 +34,15 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'docker run --name auth-provider --net=host -e APP_PORT=4200 -e DB_USER=inventory_user -e DB_PASSWORD=inventory_password -e DB_HOST=192.168.0.107 -d auth-provider:1.0'
+                script {
+                    docker.image("auth-provider:1.0")
+                    .run('--name auth-provider --net=host '
+                        + '-e DB_USER=inventory_user '
+                        + '-e DB_PASSWORD=inventory_password '
+                        + '-e DB_HOST=192.168.0.107 '
+                        + '-e DB_DATABASE=inventory_db '
+                    )
+                }
             }
         }
     }
