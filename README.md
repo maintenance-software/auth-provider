@@ -1,4 +1,4 @@
-## Auth provider
+## Oauth2 provider for inventories solutions
 
 A Haskell implementation of [OpenID Connect](http://openid.net/connect/).
 
