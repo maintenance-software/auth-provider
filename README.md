@@ -14,7 +14,7 @@ Do stack setup only the first time
 ```
 $ stack setup
 ```
-Build the project
+Build project
 ```
 $ stack build
 ```
